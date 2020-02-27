@@ -623,12 +623,9 @@ class ChartDataList extends React.Component {
 							{historicalPriceses}
 
               <div className="row">
-                <div className="col-sm-6 my-auto">
-                  <Bar data={myBarChart} width={100} height={50} options={myBarChartOptions} />
-                </div>
-                <div className="col-sm-6 my-auto">
+
                   <Line data={myYearAreaChart} width={100} height={50} options={myYearAreaChartOptions}/>
-                </div>
+
               </div>
             </div>
 		)
@@ -642,10 +639,10 @@ class ChartData extends React.Component {
 	}
 
 	render() {
-    this.props.barChart.labels.push(this.props.nlu.entity.symbol);
-    this.props.barChart.datasets[0].data.push(this.props.nlu.entity.count);
-    this.props.lineChart.labels.push(this.props.nlu.entity.year);
-    this.props.lineChart.datasets[0].data.push(this.props.nlu.entity.count);
+    this.props.barChart.labels.push(this.props.nlu.entity.dateStamp);
+    this.props.barChart.datasets[0].data.push(this.props.nlu.entity.close);
+    this.props.lineChart.labels.push(this.props.nlu.entity.dateStamp);
+    this.props.lineChart.datasets[0].data.push(this.props.nlu.entity.close);
 		return (
       <div>
       </div>

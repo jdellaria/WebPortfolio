@@ -22876,21 +22876,19 @@
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var isProduction = process.env.NODE_ENV === 'production';
 	var prefix = 'Invariant failed';
 	function invariant(condition, message) {
-	  if (condition) {
-	    return;
-	  }
-	
-	  if (isProduction) {
-	    throw new Error(prefix);
-	  } else {
+	    if (condition) {
+	        return;
+	    }
+	    if (isProduction) {
+	        throw new Error(prefix);
+	    }
 	    throw new Error(prefix + ": " + (message || ''));
-	  }
 	}
-	
-	module.exports = invariant;
+	exports.default = invariant;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
@@ -70525,6 +70523,10 @@
 	  };
 	
 	  ChartComponent.prototype.destroyChart = function destroyChart() {
+	    if (!this.chartInstance) {
+	      return;
+	    }
+	
 	    // Put all of the datasets that have existed in the chart back on the chart
 	    // so that the metadata associated with this chart get destroyed.
 	    // This allows the datasets to be used in another chart. This can happen,
@@ -89222,16 +89224,7 @@
 					_react2.default.createElement(
 						'div',
 						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-sm-6 my-auto' },
-							_react2.default.createElement(_reactChartjs.Bar, { data: myBarChart, width: 100, height: 50, options: myBarChartOptions })
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-sm-6 my-auto' },
-							_react2.default.createElement(_reactChartjs.Line, { data: myYearAreaChart, width: 100, height: 50, options: myYearAreaChartOptions })
-						)
+						_react2.default.createElement(_reactChartjs.Line, { data: myYearAreaChart, width: 100, height: 50, options: myYearAreaChartOptions })
 					)
 				);
 			}
@@ -89252,10 +89245,10 @@
 		_createClass(ChartData, [{
 			key: 'render',
 			value: function render() {
-				this.props.barChart.labels.push(this.props.nlu.entity.symbol);
-				this.props.barChart.datasets[0].data.push(this.props.nlu.entity.count);
-				this.props.lineChart.labels.push(this.props.nlu.entity.year);
-				this.props.lineChart.datasets[0].data.push(this.props.nlu.entity.count);
+				this.props.barChart.labels.push(this.props.nlu.entity.dateStamp);
+				this.props.barChart.datasets[0].data.push(this.props.nlu.entity.close);
+				this.props.lineChart.labels.push(this.props.nlu.entity.dateStamp);
+				this.props.lineChart.datasets[0].data.push(this.props.nlu.entity.close);
 				return _react2.default.createElement('div', null);
 			}
 		}]);
