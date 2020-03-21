@@ -18,13 +18,13 @@ import stompClient from './websocket-listener';
 import { Button , ButtonGroup } from 'reactstrap';
 import {Line, Pie, Bar } from 'react-chartjs-2';
 
-import NLUItems from './NLUItems'
+import ChartDisplay from './ChartDisplay'
 
 class Keywords extends React.Component {
   render(){
     return (
     <div>
-      <NLUItems itemParameter='Keyword' rootParameter=''  />
+      <ChartDisplay itemParameter='Keyword' rootParameter=''  />
     </div>
     );
   }

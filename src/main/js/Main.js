@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Table from './Table';
 
-import NLUItems from './NLUItems';
+import ChartDisplay from './ChartDisplay'
 import Entities from './Entities';
 import Categories from './Categories';
 import Keywords from './Keywords';
@@ -38,7 +38,7 @@ class Main extends Component {
           <Route path='/AGRKeywords' component={AGRKeywords}/>
           <Route path='/AGRConcepts' component={AGRConcepts}/>
           <Route path='/NLUSumItems' component={NLUSumItems}/>
-          <Route path='/NLUItems' component={NLUItems}/>
+          <Route path='/ChartDisplay' component={ChartDisplay}/>
         </Switch>
       </main>
     );

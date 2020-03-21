@@ -18,7 +18,7 @@ import stompClient from './websocket-listener';
 import { Button , ButtonGroup } from 'reactstrap';
 import {Line, Pie, Bar } from 'react-chartjs-2';
 
-import NLUItems from './NLUItems'
+import ChartDisplay from './ChartDisplay'
 
 class Categories extends React.Component {
   render(){

@@ -172,7 +172,7 @@ class Dashboard extends Component {
               <i className="fa fa-table"></i> Data Table Example</div>
             <div className="card-body">
               <div className="table-responsive">
-                <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -670,7 +670,7 @@ class Dashboard extends Component {
           <i className="fa fa-angle-up"></i>
         </a>
 
-        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

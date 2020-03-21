@@ -37,7 +37,7 @@ public class HistoricalPrices {
 
 	private @Id @GeneratedValue Long id;
 	private String symbol;
-	private String stringTimeStamp;
+	//private String stringTimeStamp;
 	private Date dateStamp;
 	private Double open;
 	private Double high;
@@ -51,9 +51,9 @@ public class HistoricalPrices {
 	private HistoricalPrices() {}
 
 
-	public HistoricalPrices(String symbol, String timeStamp, Date dateStamp, Double open, Double high, Double low, Double close, Double adjClose, Integer volume) {
+	public HistoricalPrices(String symbol, Date dateStamp, Double open, Double high, Double low, Double close, Double adjClose, Integer volume) {
 		this.symbol = symbol;
-		this.stringTimeStamp = timeStamp;
+	//	this.stringTimeStamp = timeStamp;
 		this.dateStamp = dateStamp;
 		this.open = open;
 		this.high = high;

@@ -27,13 +27,14 @@ import org.springframework.stereotype.Component;
 public class DatabaseLoader implements CommandLineRunner {
 
 	private final HistoricalPricesRepository Nrepository;
-//	private final HistoricalPricessumRepository Nsumrepository;
+	private final HistoricalValueRepository Nvrepository;
 
 	@Autowired
-	public DatabaseLoader( HistoricalPricesRepository Nrepository) {
+	public DatabaseLoader( HistoricalPricesRepository Nrepository, HistoricalValueRepository Nvrepository) {
 //		public DatabaseLoader( HistoricalPricesRepository Nrepository,  HistoricalPricessumRepository Nsumrepository) {
 
 		this.Nrepository = Nrepository;
+		this.Nvrepository = Nvrepository;
 //		this.Nsumrepository = Nsumrepository;
 	}
 
