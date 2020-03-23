@@ -61,7 +61,7 @@ class SideBar extends Component {
         <li className="nav-item" data-toggle="tooltip" data-placement="right" title="Entities">
           <Link to='/Entities' className="nav-link">
             <i className="fa fa-fw fa-area-chart"></i>
-            <span className="nav-link-text">Raw Entities</span>
+            <span className="nav-link-text">Valuation</span>
           </Link>
         </li>
 

@@ -24,7 +24,7 @@ class Entities extends React.Component {
   render(){
     return (
     <div>
-      <ChartDisplay itemParameter='Entities' rootParameter='' />
+      <ChartDisplay itemParameter='Valuation' rootParameter='' />
     </div>
     );
   }

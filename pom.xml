@@ -16,8 +16,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Watson Natural Language Understanding</name>
-	<description>This is an example of how Watson NLU can be used in an on premis or cloud data center using React, SpringBoot and Mysql</description>
+	<name>Jon's Stock Portfolio</name>
+	<description>This is an example of how to build a Stock Portfolio Valuation Visualization using React, SpringBoot and Mysql</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
