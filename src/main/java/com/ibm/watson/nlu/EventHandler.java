@@ -44,23 +44,6 @@ public class EventHandler {
 		this.entityLinks = entityLinks;
 	}
 
-	@HandleAfterCreate
-	public void newNlu(HistoricalPrices employee) {
-		this.websocket.convertAndSend(
-				MESSAGE_PREFIX + "/newNlu", getPath(employee));
-	}
-
-	@HandleAfterDelete
-	public void deleteNlu(HistoricalPrices employee) {
-		this.websocket.convertAndSend(
-				MESSAGE_PREFIX + "/deleteNlu", getPath(employee));
-	}
-
-	@HandleAfterSave
-	public void updateNlu(HistoricalPrices employee) {
-		this.websocket.convertAndSend(
-				MESSAGE_PREFIX + "/updateNlu", getPath(employee));
-	}
 
 	/**
 	 * Take an {@link Nlu} and get the URI using Spring Data REST's {@link EntityLinks}.

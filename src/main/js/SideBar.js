@@ -79,18 +79,10 @@ class SideBar extends Component {
           </Link>
         </li>
 
-
         <li className="nav-item" data-toggle="tooltip" data-placement="right" title="Concepts">
           <Link to='/Concepts' className="nav-link">
             <i className="fa fa-fw fa-area-chart"></i>
             <span className="nav-link-text">Raw Concepts</span>
-          </Link>
-        </li>
-
-        <li className="nav-item" data-toggle="tooltip" data-placement="right" title="NLUItems">
-          <Link to='/NLUItems' className="nav-link">
-            <i className="fa fa-fw fa-area-chart"></i>
-            <span className="nav-link-text">All Raw Items</span>
           </Link>
         </li>
 

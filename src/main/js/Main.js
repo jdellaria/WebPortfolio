@@ -8,11 +8,8 @@ import Entities from './Entities';
 import Categories from './Categories';
 import Keywords from './Keywords';
 import Concepts from './Concepts';
-import NLUSumItems from './NLUSumItems';
-import AGREntities from './AGREntities';
-import AGRCategories from './AGRCategories';
-import AGRKeywords from './AGRKeywords';
-import AGRConcepts from './AGRConcepts';
+
+
 
 
 // The Main component renders one of the three provided
@@ -33,11 +30,6 @@ class Main extends Component {
           <Route path='/Categories' component={Categories}/>
           <Route path='/Keywords' component={Keywords}/>
           <Route path='/Concepts' component={Concepts}/>
-          <Route path='/AGREntities' component={AGREntities}/>
-          <Route path='/AGRCategories' component={AGRCategories}/>
-          <Route path='/AGRKeywords' component={AGRKeywords}/>
-          <Route path='/AGRConcepts' component={AGRConcepts}/>
-          <Route path='/NLUSumItems' component={NLUSumItems}/>
           <Route path='/ChartDisplay' component={ChartDisplay}/>
         </Switch>
       </main>
