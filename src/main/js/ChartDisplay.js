@@ -39,7 +39,7 @@ class ChartDisplay extends React.Component {
 //class NLUItems extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {historicalValues: [], cellSelected: [], attributes: [], sortBy: "dateStamp,desc", searchBy:'findBysymbolContainingIgnoreCase', page: 1, symbol: 'adbe', pageSize: 80, sort:"symbol,desc", links: {}};
+		this.state = {historicalValues: [], cellSelected: [], attributes: [], sortBy: "dateStamp,desc", searchBy:'findBysymbolContainingIgnoreCase', page: 1, symbol: 'adbe', pageSize: 800, sort:"symbol,desc", links: {}};
 		this.updatePageSize = this.updatePageSize.bind(this);
 		this.onNavigate = this.onNavigate.bind(this);
 		this.refreshCurrentPage = this.refreshCurrentPage.bind(this);
@@ -185,7 +185,7 @@ class ChartDisplay extends React.Component {
 					<i className="fa fa-bar-chart"></i>Valuation - {this.props.itemParameter}
         </div>
 				<div className="card-body">
-          <ChartDataList page={this.state.page}
+          <ChartHistoricalValueList page={this.state.page}
                   historicalValues={this.state.historicalValues}
                   links={this.state.links}
                   pageSize={this.state.pageSize}
@@ -261,6 +261,78 @@ class ChartDisplay extends React.Component {
 }
 
 
+class ChartHistoricalValueList extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+  var jonData = (props) => {
+    let temp = {}
+    return  props.historicalValues.map(row => {
+      temp.name = row.entity.symbol
+      temp.close = row.entity.close
+      return row
+    })
+  };
+
+  let jonVar = this.props.historicalValues.map(obj =>{
+    let rObj = obj.entity
+    return rObj
+  });
+  console.log("webGroupByDate jonVar: " , jonVar);
+  let webGroupByDate = d3.group(jonVar, d=>d.dateStamp);
+  console.log("webGroupByDate: " , webGroupByDate);
+
+  let jonChartData = {};
+  jonChartData = createChartDate(webGroupByDate);
+  console.log("jonChartData: " , jonChartData);
+  function createChartDate(mapData)
+  {
+    let rArray = new Array();
+    mapData.forEach(function(value, key) {
+      rArray.push(extractArrayData(value));
+    });
+    rArray.reverse();
+    return rArray;
+  }
+
+  function extractArrayData(arrayData)
+  {
+    let rObj = {};
+    rObj.value = 0;
+    arrayData.forEach(element => {
+      rObj.date = element.dateStamp;
+//      rObj[element.symbol] = element.close;
+      rObj.value = rObj.value + element.valuation;
+    });
+    return rObj;
+  }
+
+  console.log("ChartDataList this.props.historicalValues", this.props.historicalValues );
+//console.log("ChartDataList this.props.historicalValues[0].entity", this.props.historicalValues[0].entity );
+//console.log("ChartDataList historicalValues[0].props",historicalValues[0].props );
+		return (
+      <div>
+        <div className="row">
+          <ResponsiveContainer  width='100%' aspect={6.0/1.0}>
+            <LineChart  data={jonChartData} margin={{ top: 5, right: 30, left: 20, bottom: 5,}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="date" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="value" stroke="black" dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+		)
+	}
+}
+
+
 class ChartDataList extends React.Component {
 
 	constructor(props) {
@@ -294,6 +366,7 @@ class ChartDataList extends React.Component {
     mapData.forEach(function(value, key) {
       rArray.push(extractArrayData(value));
     });
+    rArray.reverse();
     return rArray;
   }
 
@@ -302,7 +375,7 @@ class ChartDataList extends React.Component {
     let rObj = {};
     arrayData.forEach(element => {
       rObj.date = element.dateStamp;
-      rObj[element.symbol] = element.close;
+      rObj[element.symbol] = element.valuation;
     });
     return rObj;
   }
