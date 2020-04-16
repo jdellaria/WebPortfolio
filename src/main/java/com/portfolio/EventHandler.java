@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ibm.watson.nlu;
+package com.portfolio;
 
-import static com.ibm.watson.nlu.WebSocketConfiguration.*;
+import static com.portfolio.WebSocketConfiguration.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
